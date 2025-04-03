@@ -1,4 +1,4 @@
-# Biblioteca Java: Aventuras en la Programación
+# Biblioteca Java: Primeras Aventuras en la Programación
 
 ## Descripción
 
@@ -13,7 +13,7 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
 2. Haz clic en el botón "Fork" en la esquina superior derecha para crear una copia del repositorio en tu cuenta de GitHub.
 3. Clona el repositorio forkeado a tu máquina local:
    ```bash
-   git clone https://github.com/tu-usuario/biblioteca-java.git
+   git clone https://github.com/rafaelsua/javalibrary.git
    ```
 ### 2. Instalación
    Abre el proyecto en tu IDE (IntelliJ, Eclipse, Visual Studio Code).
