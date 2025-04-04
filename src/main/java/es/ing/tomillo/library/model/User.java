@@ -12,6 +12,45 @@ public class User {
         this.borrowedBooks = new Book[5]; // Maximum 5 borrowed books
         this.bookCount = 0;
     }
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter for id
+    public int getId() {
+        return id;
+    }
+
+    // Setter for id
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // Getter for borrowedBooks
+    public Book[] getBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+    // Setter for borrowedBooks
+    public void setBorrowedBooks(Book[] borrowedBooks) {
+        this.borrowedBooks = borrowedBooks;
+    }
+
+    // Getter for bookCount
+    public int getBookCount() {
+        return bookCount;
+    }
+
+    // Setter for bookCount
+    public void setBookCount(int bookCount) {
+        this.bookCount = bookCount;
+    }
 
     // Getters and Setters
 
