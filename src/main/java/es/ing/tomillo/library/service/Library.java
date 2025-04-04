@@ -2,6 +2,7 @@ package es.ing.tomillo.library.service;
 
 import es.ing.tomillo.library.model.Book;
 import es.ing.tomillo.library.model.User;
+import es.ing.tomillo.library.util.SampleData;
 
 import java.util.Scanner;
 
@@ -17,6 +18,31 @@ public class Library {
         this.users = new User[50]; // Maximum 50 users
         this.bookCount = 0;
         this.userCount = 0;
+        
+        // Cargar datos de ejemplo
+        loadSampleData();
+    }
+
+    private void loadSampleData() {
+        // Cargar libros de ejemplo
+        for (Book book : SampleData.SAMPLE_BOOKS) {
+            if (bookCount < books.length) {
+                books[bookCount] = book;
+                bookCount++;
+            }
+        }
+
+        // Cargar usuarios de ejemplo
+        for (User user : SampleData.SAMPLE_USERS) {
+            if (userCount < users.length) {
+                users[userCount] = user;
+                userCount++;
+            }
+        }
+
+        System.out.println("Datos de ejemplo cargados:");
+        System.out.println("- " + bookCount + " libros");
+        System.out.println("- " + userCount + " usuarios");
     }
 
     public void addBook(Book book) {
@@ -24,6 +50,8 @@ public class Library {
             books[bookCount] = book;
             bookCount++;
         } else {
+            // TODO: Añadir un mensaje de error que indique el límite de libros alcanzado
+            
             System.out.println("ERROR: No se pueden añadir más libros. Límite alcanzado.");
         }
     }
@@ -33,6 +61,9 @@ public class Library {
             users[userCount] = user;
             userCount++;
         } else {
+
+            // TODO: Añadir un mensaje de error que indique el límite de usuarios alcanzado
+
             System.out.println("ERROR: No se pueden añadir más usuarios. Límite alcanzado.");
         }
     }
