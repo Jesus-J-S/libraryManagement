@@ -1,6 +1,13 @@
 package es.ing.tomillo.library.model;
 
 public class Book {
+    // TODO: Implementar los atributos según el ejercicio 1
+    // - titulo (String)
+    // - autor (String)
+    // - isbn (String)
+    // - disponible (boolean)
+
+    // TODO: Implementar constructor según el ejercicio 1
     private String title;
     private String author;
     private String isbn;
@@ -13,50 +20,14 @@ public class Book {
         this.available = true;
     }
 
+    // TODO: Implementar getters y setters según el ejercicio 1
 
-    // TODO: Añadir los metodos necesarios
-
-    // Getters and Setters
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
+    // TODO: Implementar método toString según el ejercicio 1
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", available=" + available +
-                '}';
+        return "";
     }
+
+    // TODO: Implementar método equals para comparar libros por ISBN
 }
 

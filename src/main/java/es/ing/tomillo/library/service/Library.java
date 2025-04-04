@@ -7,12 +7,17 @@ import es.ing.tomillo.library.util.SampleData;
 import java.util.Scanner;
 
 public class Library {
-
+    // TODO: Implementar los atributos según el ejercicio 3
+    // - libros (Array de Libro)
+    // - usuarios (Array de Usuario)
+    // - contadorLibros (int)
+    // - contadorUsuarios (int)
     private final Book[] books;
     private final User[] users;
     private int bookCount;
     private int userCount;
 
+    // TODO: Implementar constructor según el ejercicio 3
     public Library() {
         this.books = new Book[100]; // Maximum 100 books
         this.users = new User[50]; // Maximum 50 users
@@ -45,37 +50,37 @@ public class Library {
         System.out.println("- " + userCount + " usuarios");
     }
 
+    // TODO: Implementar método añadirLibro según el ejercicio 3
     public void addBook(Book book) {
         if (bookCount < books.length) {
             books[bookCount] = book;
             bookCount++;
         } else {
-            // TODO: Añadir un mensaje de error que indique el límite de libros alcanzado
-            
             System.out.println("ERROR: No se pueden añadir más libros. Límite alcanzado.");
         }
     }
 
+    // TODO: Implementar método añadirUsuario según el ejercicio 3
     public void addUser(User user) {
         if (userCount < users.length) {
             users[userCount] = user;
             userCount++;
         } else {
-
-            // TODO: Añadir un mensaje de error que indique el límite de usuarios alcanzado
-
             System.out.println("ERROR: No se pueden añadir más usuarios. Límite alcanzado.");
         }
     }
 
+    // TODO: Implementar método prestarLibro según el ejercicio 3
     public void borrowBook(User user, Book book) {
         user.borrowBook(book);
     }
 
+    // TODO: Implementar método devolverLibro según el ejercicio 3
     public void returnBook(User user, Book book) {
         user.returnBook(book);
     }
 
+    // TODO: Implementar método buscarLibroPorTitulo según el ejercicio 4
     public Book searchBookByTitle(String title) {
         for (Book book : books) {
             if (book != null && book.getTitle().equalsIgnoreCase(title)) {
@@ -85,6 +90,7 @@ public class Library {
         return null;
     }
 
+    // TODO: Implementar método buscarLibroPorAutor según el ejercicio 4
     public Book searchBookByAuthor(String author) {
         for (Book book : books) {
             if (book != null && book.getAuthor().equalsIgnoreCase(author)) {
@@ -92,6 +98,18 @@ public class Library {
             }
         }
         return null;
+    }
+
+    // TODO: Implementar método listarLibrosDisponibles según el ejercicio 5
+    // Debe mostrar por pantalla todos los libros que están disponibles (isAvailable = true)
+    public void listAvailableBooks() {
+        // TODO: Implementar la lógica para listar los libros disponibles
+    }
+
+    // TODO: Implementar método listarUsuarios según el ejercicio 5
+    // Debe mostrar por pantalla todos los usuarios registrados en la biblioteca
+    public void listUsers() {
+        // TODO: Implementar la lógica para listar los usuarios
     }
 
     public static void main(String[] args) {
@@ -112,7 +130,9 @@ public class Library {
             System.out.println("4. Return Book");
             System.out.println("5. Search Book by Title");
             System.out.println("6. Search Book by Author");
-            System.out.println("7. Exit");
+            System.out.println("7. List Available Books");
+            System.out.println("8. List Users");
+            System.out.println("9. Exit");
             System.out.print("Choose an option: ");
             int option = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -185,6 +205,12 @@ public class Library {
                     }
                     break;
                 case 7:
+                    library.listAvailableBooks();
+                    break;
+                case 8:
+                    library.listUsers();
+                    break;
+                case 9:
                     exit = true;
                     break;
                 default:
