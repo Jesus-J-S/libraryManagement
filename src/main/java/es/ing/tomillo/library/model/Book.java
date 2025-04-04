@@ -13,10 +13,10 @@ public class Book {
         this.available = true;
     }
 
-    // Getters and Setters
+
     // TODO: Añadir los metodos necesarios
 
-
+    // Getters and Setters
     public String getTitle() {
         return title;
     }
