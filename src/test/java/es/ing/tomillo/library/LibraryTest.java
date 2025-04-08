@@ -11,16 +11,16 @@ public class LibraryTest {
     @Test
     public void testAddBook() {
         Library library = new Library();
-        Book book = new Book("Don Quixote", "Cervantes", "123456789");
+        Book book = new Book("Don Quijote", "Cervantes", "123456789");
         library.addBook(book);
-        assertEquals(book, library.getBooks()[0]);
+        assertEquals(book, library.searchBookByTitle(book.getTitle()));
     }
 
     @Test
     public void testBorrowBook() {
         Library library = new Library();
         User user = new User("John", 1);
-        Book book = new Book("Don Quixote", "Cervantes", "123456789");
+        Book book = new Book("Don Quijote", "Cervantes", "123456789");
         library.addBook(book);
         library.addUser(user);
         library.borrowBook(user, book);
@@ -32,7 +32,7 @@ public class LibraryTest {
     public void testReturnBook() {
         Library library = new Library();
         User user = new User("John", 1);
-        Book book = new Book("Don Quixote", "Cervantes", "123456789");
+        Book book = new Book("Don Quijote", "Cervantes", "123456789");
         library.addBook(book);
         library.addUser(user);
         library.borrowBook(user, book);

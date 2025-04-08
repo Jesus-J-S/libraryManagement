@@ -19,7 +19,39 @@ public class User {
     }
 
     // TODO: Implementar getters y setters según el ejercicio 2
-    
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Book[] getBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+    public void setBorrowedBooks(Book[] borrowedBooks) {
+        this.borrowedBooks = borrowedBooks;
+    }
+
+    public int getBookCount() {
+        return bookCount;
+    }
+
+    public void setBookCount(int bookCount) {
+        this.bookCount = bookCount;
+    }
 
     // TODO: Implementar método prestarLibro según el ejercicio 2
     // Debe añadir un libro al array de libros prestados
