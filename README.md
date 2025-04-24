@@ -26,18 +26,15 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
 
 ### 4.  Ejercicios a Realizar
 
-#### 1. Clase Libro
-      Crea una clase Libro con los siguientes atributos: titulo (String), autor (String), isbn (String), disponible (boolean).
+#### 1. Clase Book
+      En la clase Book los atributos son: titulo (String), autor (String), isbn (String), disponible (boolean)
       Implementa un constructor para inicializar los atributos.
       Implementa métodos getters y setters para los atributos.
       Implementa un método toString para mostrar la información del libro.
-#### 2. Clase Usuario
-      Crea una clase Usuario con los siguientes atributos: nombre (String), id (int), librosPrestados (Array de Libro).
-      Implementa un constructor para inicializar los atributos.
-      Implementa métodos getters y setters para los atributos.
-      Implementa un método prestarLibro para añadir un libro al array de libros prestados.
-      Implementa un método devolverLibro para eliminar un libro del array de libros prestados.
-      Implementa un método reservarLibro para reservar libros que no están disponibles.
+#### 2. Clase User      
+      Implementa un método borrowBook para añadir un libro al array de libros prestados.
+      Implementa un método returnBook para eliminar un libro del array de libros prestados.
+      Implementa un método reserveBook para reservar libros que no están disponibles.
 #### 3. Clase Biblioteca
       Crea una clase Biblioteca con los siguientes atributos: libros (Array de Libro), usuarios (Array de Usuario).
       Implementa un constructor para inicializar los atributos.

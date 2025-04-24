@@ -7,21 +7,27 @@ import es.ing.tomillo.library.util.SampleData;
 import java.util.Scanner;
 
 public class Library {
-    // TODO: Implementar los atributos según el ejercicio 3
-    // - libros (Array de Libro)
-    // - usuarios (Array de Usuario)
-    // - contadorLibros (int)
-    // - contadorUsuarios (int)
-    private final Book[] books;
-    private final User[] users;
-    private int bookCount;
-    private int userCount;
+    // TODO: Implementar los atributos que faltan según el ejercicio 3
 
-    // TODO: Implementar constructor según el ejercicio 3
+    // - usuarios (Array de Usuario)
+    private final User[] users;
+    // - libros (Array de Libro)
+
+    // - contadorUsuarios (int)
+    private int userCount;
+    // - contadorLibros (int)
+
+
+
+
+    // TODO: Completar el constructor
     public Library() {
-        this.books = new Book[100]; // Maximum 100 books
-        this.users = new User[50]; // Maximum 50 users
-        this.bookCount = 0;
+
+        // Maximum 50 users
+        this.users = new User[50];
+        // TODO: Maximum 100 books
+
+        // TODO: Inicializar contadores a 0
         this.userCount = 0;
         
         // Cargar datos de ejemplo
@@ -29,13 +35,6 @@ public class Library {
     }
 
     private void loadSampleData() {
-        // Cargar libros de ejemplo
-        for (Book book : SampleData.SAMPLE_BOOKS) {
-            if (bookCount < books.length) {
-                books[bookCount] = book;
-                bookCount++;
-            }
-        }
 
         // Cargar usuarios de ejemplo
         for (User user : SampleData.SAMPLE_USERS) {
@@ -45,18 +44,20 @@ public class Library {
             }
         }
 
+        // Cargar libros de ejemplo
+
+
         System.out.println("Datos de ejemplo cargados:");
-        System.out.println("- " + bookCount + " libros");
         System.out.println("- " + userCount + " usuarios");
+        // TODO: Mostrar por pantalla el número de libros cargados
     }
 
-    // TODO: Implementar método añadirLibro según el ejercicio 3
-    public void addBook(Book book) {
-        if (bookCount < books.length) {
-            books[bookCount] = book;
-            bookCount++;
-        } else {
-            System.out.println("ERROR: No se pueden añadir más libros. Límite alcanzado.");
+    // Mostrar por pantalla todos los usuarios registrados en la biblioteca
+    public void listUsers() {
+        for (User user : users) {
+            System.out.println("ID: " + user.getId());
+            System.out.println("Nombre: " + user.getName());
+            System.out.println("Número de libros reservados: " + user.getBookCount());
         }
     }
 
@@ -68,6 +69,11 @@ public class Library {
         } else {
             System.out.println("ERROR: No se pueden añadir más usuarios. Límite alcanzado.");
         }
+    }
+
+    // TODO: Implementar método añadirLibro según el ejercicio 3
+    public void addBook(Book book) {
+
     }
 
     // TODO: Implementar método prestarLibro según el ejercicio 3
@@ -82,21 +88,13 @@ public class Library {
 
     // TODO: Implementar método buscarLibroPorTitulo según el ejercicio 4
     public Book searchBookByTitle(String title) {
-        for (Book book : books) {
-            if (book != null && book.getTitle().equalsIgnoreCase(title)) {
-                return book;
-            }
-        }
+
         return null;
     }
 
     // TODO: Implementar método buscarLibroPorAutor según el ejercicio 4
     public Book searchBookByAuthor(String author) {
-        for (Book book : books) {
-            if (book != null && book.getAuthor().equalsIgnoreCase(author)) {
-                return book;
-            }
-        }
+
         return null;
     }
 
@@ -106,11 +104,6 @@ public class Library {
         // TODO: Implementar la lógica para listar los libros disponibles
     }
 
-    // TODO: Implementar método listarUsuarios según el ejercicio 5
-    // Debe mostrar por pantalla todos los usuarios registrados en la biblioteca
-    public void listUsers() {
-        // TODO: Implementar la lógica para listar los usuarios
-    }
 
     public static void main(String[] args) {
         Library library = new Library();
@@ -145,7 +138,7 @@ public class Library {
                     String author = scanner.nextLine();
                     System.out.print("Enter book ISBN: ");
                     isbn = scanner.nextLine();
-                    book = new Book(title, author, isbn);
+                    //book = new Book(title, author, isbn);
                     library.addBook(book);
                     break;
                 case 2:
