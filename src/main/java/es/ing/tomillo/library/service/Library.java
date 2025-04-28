@@ -4,52 +4,34 @@ import es.ing.tomillo.library.model.Book;
 import es.ing.tomillo.library.model.User;
 import es.ing.tomillo.library.util.SampleData;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Library {
-    // TODO: Implementar los atributos que faltan según el ejercicio 3
+    // Lista de usuarios
+    private final List<User> users;
+    // Lista de libros
+    private final List<Book> books;
 
-    // - usuarios (Array de Usuario)
-    private final User[] users;
-    // - libros (Array de Libro)
-
-    // - contadorUsuarios (int)
-    private int userCount;
-    // - contadorLibros (int)
-
-
-
-
-    // TODO: Completar el constructor
     public Library() {
-
-        // Maximum 50 users
-        this.users = new User[50];
-        // TODO: Maximum 100 books
-
-        // TODO: Inicializar contadores a 0
-        this.userCount = 0;
+        this.users = new ArrayList<>();
+        this.books = new ArrayList<>();
         
         // Cargar datos de ejemplo
         loadSampleData();
     }
 
     private void loadSampleData() {
-
         // Cargar usuarios de ejemplo
-        for (User user : SampleData.SAMPLE_USERS) {
-            if (userCount < users.length) {
-                users[userCount] = user;
-                userCount++;
-            }
-        }
+        users.addAll(SampleData.SAMPLE_USERS);
 
         // Cargar libros de ejemplo
 
 
         System.out.println("Datos de ejemplo cargados:");
-        System.out.println("- " + userCount + " usuarios");
-        // TODO: Mostrar por pantalla el número de libros cargados
+        System.out.println("- " + users.size() + " usuarios");
+        System.out.println("- " + books.size() + " libros");
     }
 
     // Mostrar por pantalla todos los usuarios registrados en la biblioteca
@@ -61,17 +43,10 @@ public class Library {
         }
     }
 
-    // TODO: Implementar método añadirUsuario según el ejercicio 3
     public void addUser(User user) {
-        if (userCount < users.length) {
-            users[userCount] = user;
-            userCount++;
-        } else {
-            System.out.println("ERROR: No se pueden añadir más usuarios. Límite alcanzado.");
-        }
+        users.add(user);
     }
 
-    // TODO: Implementar método añadirLibro según el ejercicio 3
     public void addBook(Book book) {
 
     }
@@ -101,9 +76,22 @@ public class Library {
     // TODO: Implementar método listarLibrosDisponibles según el ejercicio 5
     // Debe mostrar por pantalla todos los libros que están disponibles (isAvailable = true)
     public void listAvailableBooks() {
-        // TODO: Implementar la lógica para listar los libros disponibles
+        System.out.println("Libros disponibles:");
+        for (Book book : books) {
+            if (book.isAvailable()) {
+                System.out.println(book);
+            }
+        }
     }
 
+    public User getUserById(int id) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
         Library library = new Library();
@@ -113,7 +101,7 @@ public class Library {
         String isbn;
         Book book = null;
         User user = null;
-        int id=0;
+        int id = 0;
 
         while (!exit) {
             System.out.println("Menu Options:");
@@ -155,7 +143,7 @@ public class Library {
                     scanner.nextLine(); // Consume newline
                     System.out.print("Enter book title: ");
                     title = scanner.nextLine();
-                    user = library.users[id];
+                    user = library.getUserById(id);
                     book = library.searchBookByTitle(title);
                     if (user != null && book != null) {
                         library.borrowBook(user, book);
@@ -169,7 +157,7 @@ public class Library {
                     scanner.nextLine(); // Consume newline
                     System.out.print("Enter book title: ");
                     title = scanner.nextLine();
-                    user = library.users[id];
+                    user = library.getUserById(id);
                     book = library.searchBookByTitle(title);
                     if (user != null && book != null) {
                         library.returnBook(user, book);
@@ -190,7 +178,7 @@ public class Library {
                 case 6:
                     System.out.print("Enter book author: ");
                     author = scanner.nextLine();
-                    book = library.searchBookByTitle(author);
+                    book = library.searchBookByAuthor(author);
                     if (book != null) {
                         System.out.println(book);
                     } else {

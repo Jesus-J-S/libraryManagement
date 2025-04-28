@@ -25,7 +25,7 @@ public class LibraryTest {
         library.addUser(user);
         library.borrowBook(user, book);
         assertFalse(book.isAvailable());
-        assertEquals(book, user.getBorrowedBooks()[0]);
+        assertEquals(book, user.getBorrowedBooks().get(0));
     }
 
     @Test
@@ -38,6 +38,6 @@ public class LibraryTest {
         library.borrowBook(user, book);
         library.returnBook(user, book);
         assertTrue(book.isAvailable());
-        assertNull(user.getBorrowedBooks()[0]);
+        assertNull(user.getBorrowedBooks().get(0));
     }
 }
