@@ -1,21 +1,24 @@
 package es.ing.tomillo.library.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public class User {
 
     // - nombre (String)
     // - id (int)
-    // - librosPrestados (Array de Libro)
+    // - librosPrestados (List de Libro)
     private String name;
     private int id;
-    private Book[] borrowedBooks;
-    private int bookCount;
+    private final List<Book> borrowedBooks;
+    private static final int MAX_BORROWED_BOOKS = 5;
 
     // Constructor con un maximo de 5 libros prestados
     public User(String name, int id) {
         this.name = name;
         this.id = id;
-        this.borrowedBooks = new Book[5]; // Maximum 5 borrowed books
-        this.bookCount = 0;
+        this.borrowedBooks = new ArrayList<>();
     }
 
     public String getName() {
@@ -34,30 +37,22 @@ public class User {
         this.id = id;
     }
 
-    public Book[] getBorrowedBooks() {
+    public List<Book> getBorrowedBooks() {
         return borrowedBooks;
     }
 
-    public void setBorrowedBooks(Book[] borrowedBooks) {
-        this.borrowedBooks = borrowedBooks;
-    }
-
     public int getBookCount() {
-        return bookCount;
-    }
-
-    public void setBookCount(int bookCount) {
-        this.bookCount = bookCount;
+        return borrowedBooks.size();
     }
 
     // TODO: Implementar método prestarLibro según el ejercicio 2
-    // Debe añadir un libro al array de libros prestados
+    // Debe añadir un libro a la lista de libros prestados
     public void borrowBook(Book book) {
 
     }
 
     // TODO: Implementar método devolverLibro según el ejercicio 2
-    // Debe eliminar un libro del array de libros prestados
+    // Debe eliminar un libro a lista  de libros prestados
     public void returnBook(Book book) {
 
     }
@@ -65,21 +60,31 @@ public class User {
     // TODO: Implementar método reservarLibro según el ejercicio 2
     // Debe permitir reservar libros que no están disponibles
     public void reserveBook(Book book) {
-        // reservarlo o no dependiendo de si está disponible el libro
 
     }
-
 
     // TODO: Implementar método toString para mostrar la información del usuario
     @Override
     public String toString() {
-        return "";
+        return "User{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", borrowedBooks=" + borrowedBooks.size() +
+                '}';
     }
 
     // TODO: Implementar método equals para comparar usuarios por ID
     @Override
-    public boolean equals(Object obj) {
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
 

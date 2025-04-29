@@ -13,7 +13,7 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
 2. Haz clic en el botón "Fork" en la esquina superior derecha para crear una copia del repositorio en tu cuenta de GitHub.
 3. Clona el repositorio forkeado a tu máquina local:
    ```bash
-   git clone https://github.com/rafaelsua/libraryManagement.git
+   git clone https://github.com/<usuario>/libraryManagement.git
    ```
 ### 2. Instalación
    Abre el proyecto en tu IDE (IntelliJ, Eclipse, Visual Studio Code).
@@ -27,14 +27,14 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
 ### 4.  Ejercicios a Realizar
 
 #### 1. Clase Book
-      En la clase Book los atributos son: titulo (String), autor (String), isbn (String), disponible (boolean)
+      En la clase Book los atributos son: title (String), author (String), isbn (String), available (boolean)
       Implementa un constructor para inicializar los atributos.
       Implementa métodos getters y setters para los atributos.
       Implementa un método toString para mostrar la información del libro.
 #### 2. Clase User      
       Implementa un método borrowBook para añadir un libro al array de libros prestados.
       Implementa un método returnBook para eliminar un libro del array de libros prestados.
-      Implementa un método reserveBook para reservar libros que no están disponibles.
+      
 #### 3. Clase Biblioteca
       Crea una clase Biblioteca con los siguientes atributos: libros (Array de Libro), usuarios (Array de Usuario).
       Implementa un constructor para inicializar los atributos.
@@ -48,14 +48,15 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
 #### 5. Implementar búsqueda de libros:
 
       Añade un método en la clase Biblioteca para buscar libros por título o autor.
+      Añade un método en la clase Biblioteca para buscar libros que esten disponibles.
 
-#### 6. Implementar reserva de libros:
-
-      Añade un método en la clase Usuario para reservar libros que no están disponibles.
-
-#### 7. Desafío para los más avanzados:
+#### 6. Desafíos para los más avanzados:
       
-      Implementa una conexión a una base de datos utilizando JDBC para almacenar y recuperar información de libros y usuarios. Haz uso de la clase LibraryJDBC
+      Añade un método en la clase Usuario para reservar libros que no están disponibles.
+      Implementa un método reserveBook en la clase User para reservar libros que no están disponibles.
+      Extra extra:
+      En la rama del repositorio de github denomidada bbdd, está implementada una conexión a una base de datos 
+      utilizando JDBC para almacenar y recuperar información de libros y usuarios. Haz uso de la clase LibraryJDBC
 
 ### 5. Contacto
 Si tienes dudas, puedes enviar un email a [tu-email@example.com].

@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class Book {
     // TODO: Implementar los atributos según el ejercicio 1
-    // - titulo (String)
-    // - autor (String)
+    // - title (String)
+    // - author (String)
     // - isbn (String)
-    // - disponible (boolean)
+    // - available (boolean)
 
     // TODO: Implementar constructor según el ejercicio 1
     public Book() {
