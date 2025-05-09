@@ -48,13 +48,11 @@ public class User {
     // TODO: Implementar método prestarLibro según el ejercicio 2
     // Debe añadir un libro a la lista de libros prestados
     public void borrowBook(Book book) {
-
     }
 
     // TODO: Implementar método devolverLibro según el ejercicio 2
     // Debe eliminar un libro a lista  de libros prestados
     public void returnBook(Book book) {
-
     }
 
     // TODO: Implementar método reservarLibro según el ejercicio 2
