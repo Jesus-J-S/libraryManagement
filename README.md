@@ -59,5 +59,5 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
       utilizando JDBC para almacenar y recuperar información de libros y usuarios. Haz uso de la clase LibraryJDBC
 
 ### 5. Contacto
-Si tienes dudas, puedes enviar un email a [tu-email@example.com].
+Si tienes dudas, puedes enviar un email a ing-tomillo-java@ing.com
 
