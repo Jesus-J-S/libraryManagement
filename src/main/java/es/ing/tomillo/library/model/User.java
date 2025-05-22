@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+// Configuración de user
 public class User {
-
-    // - nombre (String)
-    // - id (int)
-    // - librosPrestados (List de Libro)
     private String name;
     private int id;
     private final List<Book> borrowedBooks;
     private static final int MAX_BORROWED_BOOKS = 5;
+    public List<Book> getReservedBooks() {
+        return reservedBooks;
+    }
 
-    // Constructor con un maximo de 5 libros prestados
     public User(String name, int id) {
         this.name = name;
         this.id = id;
@@ -45,33 +44,59 @@ public class User {
         return borrowedBooks.size();
     }
 
-    // TODO: Implementar método prestarLibro según el ejercicio 2
-    // Debe añadir un libro a la lista de libros prestados
+    // Metodo para prestar libros
     public void borrowBook(Book book) {
+        if (borrowedBooks.size() < MAX_BORROWED_BOOKS) {
+            borrowedBooks.add(book);
+            reservedBooks.add(book);
+            book.setAvailable(false);
+            book.setBorrowedBy(this);
+            System.out.println(name + " ha tomado prestado el libro '" + book.getTitulo() + "'");
+        } else {
+            System.out.println("El usuario " + name + " ya ha alcanzado el límite de préstamos.");
+        }
     }
 
-    // TODO: Implementar método devolverLibro según el ejercicio 2
-    // Debe eliminar un libro a lista  de libros prestados
+    // Metodo para devolver libros
     public void returnBook(Book book) {
+        if (borrowedBooks.contains(book)) {
+            borrowedBooks.remove(book);
+            book.setAvailable(true);
+            book.setBorrowedBy(null);
+            System.out.println(name + " ha devuelto el libro '" + book.getTitulo() + "'");
+        } else {
+            System.out.println(name + " no tiene prestado el libro '" + book.getTitulo() + "'");
+        }
     }
 
-    // TODO: Implementar método reservarLibro según el ejercicio 2
-    // Debe permitir reservar libros que no están disponibles
+    // Metodo para reservar libros
+    private final List<Book> reservedBooks = new ArrayList<>();
+
     public void reserveBook(Book book) {
-
+        if (reservedBooks.size() < MAX_BORROWED_BOOKS) {
+            if (!book.isAvailable()) {
+                reservedBooks.add(book);
+                System.out.println(name + " ha reservado el libro '" + book.getTitulo() + "'");
+                System.out.println("Lista actual de reservas para " + name + ": " + reservedBooks); // Depuración
+            } else {
+                System.out.println("El libro '" + book.getTitulo() + "' está disponible, no necesitas reservarlo.");
+            }
+        } else {
+            System.out.println("El usuario " + name + " ya ha alcanzado el límite de reservas.");
+        }
     }
 
-    // TODO: Implementar método toString para mostrar la información del usuario
+    // To string para mostrar información de usuario
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", borrowedBooks=" + borrowedBooks.size() +
+        return "Usuario{" +
+                "Nombre='" + name + '\'' +
+                ", ID=" + id +
+                ", Libros reservados=" + (reservedBooks.isEmpty() ? "Ninguno" : reservedBooks.size() + ": " + reservedBooks) +
                 '}';
     }
 
-    // TODO: Implementar método equals para comparar usuarios por ID
+    // Metodo equals para comparar usuarios por id
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

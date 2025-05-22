@@ -31,33 +31,32 @@ En esta práctica, desarrollarás una aplicación en Java para gestionar una bib
       Implementa un constructor para inicializar los atributos.
       Implementa métodos getters y setters para los atributos.
       Implementa un método toString para mostrar la información del libro.
+
 #### 2. Clase User      
-      Implementa un método borrowBook para añadir un libro al array de libros prestados.
-      Implementa un método returnBook para eliminar un libro del array de libros prestados.
+      Implementa un método borrowBook para añadir un libro al lista de libros prestados.
+      Implementa un método returnBook para eliminar un libro del lista de libros prestados.
       
 #### 3. Clase Biblioteca
-      Crea una clase Biblioteca con los siguientes atributos: libros (Array de Libro), usuarios (Array de Usuario).
+      Crea una clase Biblioteca con los siguientes atributos: libros (Lista de Libro), usuarios (Lista de Usuario).
       Implementa un constructor para inicializar los atributos.
       Implementa métodos para añadir libros y usuarios.
       Implementa métodos para prestar y devolver libros.
       Implementa métodos para buscar libros por título y autor.
-#### 4. JUnit Tests
-      Crea una clase de pruebas BibliotecaTest utilizando JUnit para verificar el correcto funcionamiento de los métodos.
-      Desafíos Adicionales
 
-#### 5. Implementar búsqueda de libros:
+### 5. Desafíos Adicionales
+
+#### 1. Implementar búsqueda de libros:
 
       Añade un método en la clase Biblioteca para buscar libros por título o autor.
       Añade un método en la clase Biblioteca para buscar libros que esten disponibles.
 
-#### 6. Desafíos para los más avanzados:
-      
-      Añade un método en la clase Usuario para reservar libros que no están disponibles.
+#### 2. Desafíos para los más avanzados:
+
       Implementa un método reserveBook en la clase User para reservar libros que no están disponibles.
-      Extra extra:
+##### Extra extra:
       En la rama del repositorio de github denomidada bbdd, está implementada una conexión a una base de datos 
       utilizando JDBC para almacenar y recuperar información de libros y usuarios. Haz uso de la clase LibraryJDBC
 
-### 5. Contacto
-Si tienes dudas, puedes enviar un email a ing-tomillo-java@ing.com
+### 6. Contacto
+Si tienes dudas, [nos puedes enviar un email](ing-tomillo-java@ing.com)
 
