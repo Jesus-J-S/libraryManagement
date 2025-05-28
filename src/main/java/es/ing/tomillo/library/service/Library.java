@@ -53,11 +53,19 @@ public class Library {
             System.out.println("___________________");
         }
     }
-
+    // Añadir usuario
     public void addUser(User user) {
+        for (User existingUser : users) {
+            if (existingUser.getId() == user.getId()) {
+                System.out.println("El ID ya está en uso");
+                return;
+            }
+        }
         users.add(user);
+        System.out.println("Usuario agregado correctamente");
     }
 
+    // añadir libro
     public void addBook(Book book) {
         books.add(book);
     }
@@ -233,9 +241,9 @@ for (Book book : books) {
                     String name = scanner.nextLine();
                     System.out.print("Introduce el ID del usuario: ");
                     id = scanner.nextInt();
-                    user = new User(name, id);
-                    library.addUser(user);
-                    System.out.println("Usuario agregado correctamente");
+                    scanner.nextLine();
+                    User newUser = new User(name, id);
+                    library.addUser(newUser);
                     break;
                 case 3:
                     System.out.print("Introduce el ID del usuario: ");
